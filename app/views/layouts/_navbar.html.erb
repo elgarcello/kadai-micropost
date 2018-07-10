@@ -13,8 +13,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="navbar navbar-nav navbar-right">
           <% if logged_in? %>
-            <li><%= link_to 'Users', users_path %></li>
-            <li ckass="dropdown">
+            <li><%= link_to 'Users', users_path %>&nbsp;&nbsp;</li>
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expandes="false">
                 <%= current_user.name %>
                 <span class="caret"></span>
@@ -23,6 +23,7 @@
                 <li><%= link_to 'My profile', user_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'logout', logout_path, method: :delete %></li>
+                <li><%= link_to 'favorites', favorites_user_path(current_user) %></li>
               </ul>
             </li>
           <% else %>

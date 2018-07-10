@@ -1,4 +1,5 @@
 <% if logged_in? %>
+<div class="container">
   <div class="row">
     <aside class="col-md-4">
       <%= form_for(@micropost) do |f| %>
@@ -8,10 +9,11 @@
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
     </aside>
-    <div class="col-sx-8">
+    <div class="col-md-8">
       <%= render 'microposts/microposts', microposts: @microposts %>
     </div>
   </div>
+  <div class="text-center"><h1><%= link_to 'お気に入りした投稿を見る', favorites_user_path(current_user) %></h1></div>
   <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -19,4 +21,5 @@
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
+</div>
 <% end %>
